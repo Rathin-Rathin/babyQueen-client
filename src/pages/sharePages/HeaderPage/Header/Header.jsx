@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../../Providers/AuthProvider';
 const Header = () => {
-    const user = false;
+    const { user, logOut,loader } = useContext(AuthContext);
+    if (loader) {
+        return <progress className="progress progress-secondary  w-full"></progress>
+    }
+    const handleSignOut = () => {
+        logOut()
+            .then(result => {
+                console.log('logout success');
+            })
+            .catch()
+        
+    }
     const ul = <>
-        <Link>Home</Link>
+        <Link to='/'>Home</Link>
         <Link>AllToys</Link>
         {user && <Link>MyToys</Link> }
         {user && <Link>AddToys</Link>}
         <Link>Blogs</Link>
-        {user && <img className='logo rounded-full'  alt="" /> }
-        {user ?<Link>Logout</Link>:<Link to='/login'>Login</Link>}
+        {user && <img className='logo rounded-full'src={user?.photoURL}  alt="" /> }
+        {user ?<Link onClick={handleSignOut} to='/login'>Logout</Link>:<Link to='/login'>Login</Link>}
     </>
+
     return (
         <div className="navbar bg-pink-400 border-b-2 px-6">
             <div className="navbar-start">
