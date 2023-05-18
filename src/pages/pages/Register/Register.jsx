@@ -23,7 +23,7 @@ const Register = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex gap-2 text-2xl font-mono mb-2'>
                         <FaUser className='text-pink-600' />
-                        <h1>Login Please</h1>
+                        <h1>Register Please</h1>
                     </div>
                     <hr className='mb-4 border-pink-600' />
                     <div className='w-full mb-4'>
