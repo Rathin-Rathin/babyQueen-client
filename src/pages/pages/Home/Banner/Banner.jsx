@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import animation from '../../../../assets/animation.json';
-import bg from '../../../../../public/background1.jpg';
+import bg from '../../../../assets/background.jpg'
 import { FaArrowDown } from 'react-icons/fa';
 const Banner = () => {
     const defaultOptions = {
