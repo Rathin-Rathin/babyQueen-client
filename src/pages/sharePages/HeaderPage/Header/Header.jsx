@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../../../assets/logo.png';
 import { Link } from 'react-router-dom';
 const Header = () => {
-    const user = true;
+    const user = false;
     const ul = <>
         <Link>Home</Link>
         <Link>AllToys</Link>
@@ -10,7 +10,7 @@ const Header = () => {
         {user && <Link>AddToys</Link>}
         <Link>Blogs</Link>
         {user && <img className='logo rounded-full'  alt="" /> }
-        {user ?<Link>Logout</Link>:<Link>Login</Link>}
+        {user ?<Link>Logout</Link>:<Link to='/login'>Login</Link>}
     </>
     return (
         <div className="navbar bg-pink-400 border-b-2 px-6">
