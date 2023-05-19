@@ -7,6 +7,7 @@ import Home from './pages/pages/Home/HomePage/Home';
 import Login from './pages/pages/Login/Login';
 import Register from './pages/pages/Register/Register';
 import AuthProvider from './Providers/AuthProvider';
+import AddToy from './pages/pages/AddToy/AddToy';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         path: 'register',
         element: <Register />
       },
+      {
+        path: 'addToys',
+        element:<AddToy/>
+      }
      
     ]
   },

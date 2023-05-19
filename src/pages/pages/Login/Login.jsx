@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import Lottie from 'react-lottie';
-import { FaUser } from 'react-icons/fa';
+import { FaUser} from 'react-icons/fa';
 import registration from '../../../assets/register&login.json';
 import google from '../../../assets/google_sign.jpg'
 import { AuthContext } from '../../../Providers/AuthProvider';

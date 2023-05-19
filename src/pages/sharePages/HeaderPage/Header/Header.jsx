@@ -19,7 +19,7 @@ const Header = () => {
         <Link to='/'>Home</Link>
         <Link>AllToys</Link>
         {user && <Link>MyToys</Link> }
-        {user && <Link>AddToys</Link>}
+        {user && <Link to='/addToys'>AddToys</Link>}
         <Link>Blogs</Link>
         {user && <img className='logo rounded-full'src={user?.photoURL}  alt="" /> }
         {user ?<Link onClick={handleSignOut} to='/login'>Logout</Link>:<Link to='/login'>Login</Link>}
