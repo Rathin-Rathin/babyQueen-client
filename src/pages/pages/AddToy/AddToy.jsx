@@ -7,8 +7,8 @@ import './AddToy.css';
 const AddToy = () => {
     const options = [
         { value: 'Baby dolls', label: 'Baby dolls' },
-        { value: 'Barbie dalls', label: 'Barbie dalls' },
-        { value: 'Amrican girl', label: 'Amrican girl' },
+        { value: 'Barbie dolls', label: 'Barbie dolls' },
+        { value: 'American girl', label: 'American girl' },
     ];
     const [selectedOption, setSelectedOption] = useState(null);
     const { user } = useContext(AuthContext);
@@ -41,8 +41,8 @@ const AddToy = () => {
 
     };
     return (
-        <div className='md:w-9/12 mt-6 mx-auto'>
-            <form className='form shadow-lg p-4' onSubmit={handleSubmit(onSubmit)}>
+        <div className=' bg-pink-200 pb-6'>
+            <form className='md:w-9/12 pt-6 mx-auto form shadow-lg p-4' onSubmit={handleSubmit(onSubmit)}>
                 <h1 className='text-3xl font-bold text-center mb-4'>Add Toys</h1>
                 {/* register your input into the hook by invoking the "register" function */}
                 <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Toy name" {...register("toyName",{required: true})} />
