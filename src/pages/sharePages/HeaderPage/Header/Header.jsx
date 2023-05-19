@@ -17,7 +17,7 @@ const Header = () => {
     }
     const ul = <>
         <Link to='/'>Home</Link>
-        <Link>AllToys</Link>
+        <Link to='/allToys'>AllToys</Link>
         {user && <Link>MyToys</Link> }
         {user && <Link to='/addToys'>AddToys</Link>}
         <Link>Blogs</Link>
@@ -26,7 +26,7 @@ const Header = () => {
     </>
 
     return (
-        <div className="navbar bg-pink-400 border-b-2 px-6">
+        <div className="navbar bg-pink-300 border-b-2 px-6">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
