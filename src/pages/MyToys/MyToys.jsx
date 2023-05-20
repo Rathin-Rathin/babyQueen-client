@@ -1,32 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2'
-import { FaTrash, FaEdit } from 'react-icons/fa';
 import useTitle from '../../Hooks/useTitle';
 import ViewMyToy from '../pages/ViewMyToy/ViewMyToy';
 const MyToys = () => {
     useTitle('MyToys')
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState(null);
+    const [reload, setReload] = useState(false);
+    console.log(reload);
     useEffect(() => {
         fetch(`http://localhost:5000/myToys/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
-    }, [user])
-
-    const viewDetailsHandler = (id) => {
-        if (myToys.length === 0) {
-            Swal.fire({
-
-                title: 'Oops...',
-                text: 'You have to login first',
-
-            })
-            navigate('/login')
-        } else {
-            navigate('/viewDetails')
-        }
-
+    }, [user,reload])
+    const resetData = signal => {
+        setReload(signal);
     }
     return (
         <div className='md:w-9/12 mx-auto'>
@@ -51,6 +40,7 @@ const MyToys = () => {
                                 key={data._id}
                                 myToy={data}
                                 index={index}
+                                resetData={resetData}
                             ></ViewMyToy>)
                         }
 

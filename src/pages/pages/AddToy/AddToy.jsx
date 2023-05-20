@@ -37,7 +37,7 @@ const AddToy = () => {
                             popup: 'animate__animated animate__fadeOutUp'
                         }
                     })
-                    form.reset();
+                
                 }
             })
 
@@ -75,7 +75,7 @@ const AddToy = () => {
                 {/* errors will return when field validation fails  */}
                 {errors.exampleRequired && <span>This field is required</span>}
                 <div className='flex gap-2'>
-                    <textarea id='textarea' className='border customShadow ps-2 pt-2 font-serif h-[100px] w-full' />
+                    <textarea id='textarea' placeholder='Short description....' className='border customShadow ps-2 pt-2 font-serif h-[100px] w-full' />
                     <br />
                 </div>
                     <input className='bg-pink-600 text-white p-4 mt-4 rounded font-semibold w-2/12 ' type="submit" value='Add toy' />
