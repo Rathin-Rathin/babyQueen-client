@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
+
 const customStyles = {
     content: {
         width: '50%',
@@ -14,8 +15,7 @@ const customStyles = {
     },
 };
 Modal.setAppElement(document.getElementById('root'));
-const ViewMyToy = ({ myToy, index, resetData }) => {
-    
+const ViewMyToy = ({ myToy, index, resetData,notify }) => {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     let subtitle;
@@ -29,7 +29,6 @@ const ViewMyToy = ({ myToy, index, resetData }) => {
         setIsOpen(true);
     }
     const onSubmit = data => {
-        console.log(data);
         fetch(`http://localhost:5000/updateMyToy/${data?.id}`, {
             method: 'PUT',
             headers: {
@@ -39,13 +38,17 @@ const ViewMyToy = ({ myToy, index, resetData }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 resetData(true);
+                
+                if (data.acknowledged) {
+                }
+                
         })
     }
     return (
 
         <tr className='text-center font-semibold'>
+           
             <th className='text-lg text-center text-pink-600'>{index + 1}</th>
             <td>
                 <div className="avatar">
@@ -93,7 +96,8 @@ const ViewMyToy = ({ myToy, index, resetData }) => {
                         <div className='mt-4 flex justify-between items-center'>
                             <button className=" bg-pink-500 hover:bg-pink-600 px-4 rounded  p-2 text-white border-0" onClick={closeModal}>close</button>
 
-                            <input className=' bg-pink-500 hover:bg-pink-600 px-4 rounded  p-2 text-white border-0 ' type="submit" value='update' />
+                            <input onClick={notify} className=' bg-pink-500 hover:bg-pink-600 px-4 rounded  p-2 text-white border-0 ' type="submit" value='update' />
+                            
                         </div>
 
                         {errors.exampleRequired && <span>This field is required</span>}
@@ -108,7 +112,7 @@ const ViewMyToy = ({ myToy, index, resetData }) => {
                 <button className=" bg-red-500 hover:bg-red-600 px-4 rounded  py-2 text-white border-0">Delete</button>
             </th>
         </tr>
-
+        
     );
 };
 
