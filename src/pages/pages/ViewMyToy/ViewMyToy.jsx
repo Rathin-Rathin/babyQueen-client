@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
-
+import Swal from 'sweetalert2'
 const customStyles = {
     content: {
         width: '50%',
@@ -15,7 +15,7 @@ const customStyles = {
     },
 };
 Modal.setAppElement(document.getElementById('root'));
-const ViewMyToy = ({ myToy, index, resetData,notify }) => {
+const ViewMyToy = ({ myToy, index, resetData, notify }) => {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     let subtitle;
@@ -32,23 +32,54 @@ const ViewMyToy = ({ myToy, index, resetData,notify }) => {
         fetch(`http://localhost:5000/updateMyToy/${data?.id}`, {
             method: 'PUT',
             headers: {
-                'Content-type':'application/json'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify(data)
         })
             .then(res => res.json())
             .then(data => {
                 resetData(true);
-                
+
                 if (data.acknowledged) {
                 }
-                
+
+            })
+    }
+    const handleDelete = (id) => {
+        Swal.fire({
+           
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/deleteToy/${id}`, {
+                    method: 'DELETE',
+                    headers:{'Content-type':'application/json'},
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        
+                        resetData(true);
+                        
+                    })
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+            }
+           
         })
     }
     return (
 
         <tr className='text-center font-semibold'>
-           
+
             <th className='text-lg text-center text-pink-600'>{index + 1}</th>
             <td>
                 <div className="avatar">
@@ -80,11 +111,11 @@ const ViewMyToy = ({ myToy, index, resetData,notify }) => {
 
                         className='font-bold text-center text-white text-2xl'>Update your toy</p>
                     <p className='font-serif text-bold mt-4 text-center '>{myToy?.toyName}</p>
-                    
+
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input className='hidden' defaultValue={myToy?._id} {...register("id", { required: true })} />
-                        
-                        <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded ' defaultValue= {myToy?.price} {...register("price", { required: true })} />
+
+                        <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded ' defaultValue={myToy?.price} {...register("price", { required: true })} />
                         <br />
                         <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded'
                             defaultValue={myToy?.quantity}
@@ -97,7 +128,7 @@ const ViewMyToy = ({ myToy, index, resetData,notify }) => {
                             <button className=" bg-pink-500 hover:bg-pink-600 px-4 rounded  p-2 text-white border-0" onClick={closeModal}>close</button>
 
                             <input onClick={notify} className=' bg-pink-500 hover:bg-pink-600 px-4 rounded  p-2 text-white border-0 ' type="submit" value='update' />
-                            
+
                         </div>
 
                         {errors.exampleRequired && <span>This field is required</span>}
@@ -109,10 +140,10 @@ const ViewMyToy = ({ myToy, index, resetData,notify }) => {
 
             </th>
             <th>
-                <button className=" bg-red-500 hover:bg-red-600 px-4 rounded  py-2 text-white border-0">Delete</button>
+                <button onClick={()=>handleDelete(myToy?._id)} className=" bg-red-500 hover:bg-red-600 px-4 rounded  py-2 text-white border-0">Delete</button>
             </th>
         </tr>
-        
+
     );
 };
 

@@ -10,7 +10,6 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState(null);
     const [reload, setReload] = useState(false);
-    console.log(reload);
     useEffect(() => {
         fetch(`http://localhost:5000/myToys/${user?.email}`)
             .then(res => res.json())
