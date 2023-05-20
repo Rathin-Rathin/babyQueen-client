@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from '../../../Hooks/useTitle';
 const Register = () => {
+    useTitle('Register')
     const [error, setError] = useState('');
     const googleProvider=new GoogleAuthProvider()
     const { createUser,googleSignIn } = useContext(AuthContext);

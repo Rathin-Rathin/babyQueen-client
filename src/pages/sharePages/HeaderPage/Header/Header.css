@@ -1,0 +1,11 @@
+.profileContainer{
+    position: relative;
+}
+.userName{
+    position:absolute;
+    top:-15px;
+    display:none;
+}
+.profileContainer:hover p{
+    display:block;
+}

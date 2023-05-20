@@ -4,7 +4,9 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import Select from "react-select";
 import Swal from 'sweetalert2'
 import './AddToy.css';
+import useTitle from '../../../Hooks/useTitle';
 const AddToy = () => {
+    useTitle('Add-Toy')
     const options = [
         { value: 'Baby dolls', label: 'Baby dolls' },
         { value: 'Barbie dolls', label: 'Barbie dolls' },

@@ -7,7 +7,9 @@ import registration from '../../../assets/register&login.json';
 import google from '../../../assets/google_sign.jpg'
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from '../../../Hooks/useTitle';
 const Login = () => {
+    useTitle('Login')
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const { userLogin,googleSignIn } = useContext(AuthContext);

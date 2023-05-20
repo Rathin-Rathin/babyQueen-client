@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { AuthContext } from '../../../Providers/AuthProvider';
+import { AuthContext } from '../../../Providers/AuthProvider'
 const ShopByCategory = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();

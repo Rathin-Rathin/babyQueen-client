@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import logo from '../../../../assets/logo.png';
 import { Link } from 'react-router-dom';
+import './Header.css'
 import { AuthContext } from '../../../../Providers/AuthProvider';
 const Header = () => {
-    const { user, logOut,loader } = useContext(AuthContext);
+    const { user, logOut, loader } = useContext(AuthContext);
     if (loader) {
         return <progress className="progress progress-secondary  w-full"></progress>
     }
@@ -13,20 +14,24 @@ const Header = () => {
                 console.log('logout success');
             })
             .catch()
-        
+
     }
     const ul = <>
         <Link to='/home'>Home</Link>
         <Link to='/allToys'>AllToys</Link>
-        {user && <Link to='myToys'>MyToys</Link> }
+        {user && <Link to='myToys'>MyToys</Link>}
         {user && <Link to='/addToys'>AddToys</Link>}
         <Link>Blogs</Link>
-        {user && <img className='logo rounded-full'src={user?.photoURL}  alt="" /> }
-        {user ?<Link onClick={handleSignOut} to='/login'>Logout</Link>:<Link to='/login'>Login</Link>}
+        <div className='profileContainer'>
+            {user && < img className='userProfile logo rounded-full' src={user?.photoURL} alt="" />}
+            <p className='w-[150px] userName'>{user?.displayName}</p>
+        </div>
+
+        {user ? <Link onClick={handleSignOut} to='/login'>Logout</Link> : <Link to='/login'>Login</Link>}
     </>
 
     return (
-        <div className="navbar bg-pink-300 border-b-2 px-6">
+        <div className="navbar bg-pink-500 px-6">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
