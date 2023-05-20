@@ -10,6 +10,7 @@ import AuthProvider from './Providers/AuthProvider';
 import AddToy from './pages/pages/AddToy/AddToy';
 import ViewDetails from './pages/pages/ViewDetails/ViewDetails';
 import AllToys from './pages/AllToys/AllToys';
+import MyToys from './pages/MyToys/MyToys';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: 'allToys',
         element: <AllToys />
+      },
+      {
+        path: 'myToys',
+        element:<MyToys/>
       }
      
     ]

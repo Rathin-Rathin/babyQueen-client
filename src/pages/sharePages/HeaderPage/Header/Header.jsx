@@ -16,9 +16,9 @@ const Header = () => {
         
     }
     const ul = <>
-        <Link to='/'>Home</Link>
+        <Link to='/home'>Home</Link>
         <Link to='/allToys'>AllToys</Link>
-        {user && <Link>MyToys</Link> }
+        {user && <Link to='myToys'>MyToys</Link> }
         {user && <Link to='/addToys'>AddToys</Link>}
         <Link>Blogs</Link>
         {user && <img className='logo rounded-full'src={user?.photoURL}  alt="" /> }

@@ -65,7 +65,7 @@ const AddToy = () => {
                 />
                 <br />
                 <div className='flex gap-2'>
-                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' value={user ? user?.displayName : 'Seller Name'} {...register("sellerName",{required: true})} />
+                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' value={user ?user?.displayName : 'Seller Name'} {...register("sellerName",{required: true})} />
                     <br />
                     <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' value={user ? user?.email : 'Seller email'} {...register("sellerEmail",{required: true})} />
                 </div>
