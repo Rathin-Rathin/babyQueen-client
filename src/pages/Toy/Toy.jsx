@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Toy = ({ toy, index }) => {
+    console.log(toy._id);
     return (
 
         <tr className='text-center'>
@@ -11,7 +13,7 @@ const Toy = ({ toy, index }) => {
             <td>& {toy?.price}</td>
             <td>{toy?.quantity}</td>
             <td>
-                <button className=' bg-pink-400 hover:bg-pink-600 px-4 rounded w-1/2 py-2 text-white border-0'>Details</button>
+                <Link to={`/viewDetails/${toy?._id}`}  className=' bg-pink-400 hover:bg-pink-600  px-4 rounded w-full py-2 text-white border-0'>Details</Link>
             </td>
         </tr>
 

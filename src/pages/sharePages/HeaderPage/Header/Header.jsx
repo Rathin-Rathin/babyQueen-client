@@ -5,6 +5,7 @@ import './Header.css'
 import { AuthContext } from '../../../../Providers/AuthProvider';
 const Header = () => {
     const { user, logOut, loader } = useContext(AuthContext);
+    console.log(user);
     if (loader) {
         return <progress className="progress progress-secondary  w-full"></progress>
     }
@@ -23,7 +24,7 @@ const Header = () => {
         {user && <Link to='/addToys'>AddToys</Link>}
         <Link>Blogs</Link>
         <div className='profileContainer'>
-            {user && < img className='userProfile logo rounded-full' src={user?.photoURL} alt="" />}
+            {user && < img referrerPolicy='no-referrer' className='userProfile logo rounded-full' src={user?.photoURL} alt="" />}
             <p className='w-[150px] userName'>{user?.displayName}</p>
         </div>
 

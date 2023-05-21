@@ -33,6 +33,7 @@ const Register = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+        const photoURL = form.photoURL.value;
         console.log(email, password);
         createUser(email, password)
             .then(result => {
@@ -81,7 +82,7 @@ const Register = () => {
                     </div>
                     <div className='w-full mb-4'>
                         <p className='text-xl font-serif'>Photo Url</p>
-                        <input className='border w-full mt-1 py-2 ps-2 '  />
+                        <input name='photoURL' className='border w-full mt-1 py-2 ps-2 '  />
                     </div>
 
                     <div className='flex gap-4'>

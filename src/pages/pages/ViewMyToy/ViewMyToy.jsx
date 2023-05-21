@@ -63,7 +63,7 @@ const ViewMyToy = ({ myToy, index, resetData, notify }) => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        
+
                         resetData(true);
                         
                     })

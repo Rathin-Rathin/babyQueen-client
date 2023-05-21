@@ -24,8 +24,8 @@ const AllToys = () => {
             })
     }
     return (
-        <div className="md:w-10/12 mx-auto mt-6 font-semibold">
-            <div className='flex mb-6 justify-end align items-center '>
+        <div className="md:w-10/12 mx-auto mt-6  font-semibold ">
+            <div className='flex mb-6 justify-end  align items-center '>
                 <input
                     type="search"
                     name="search"
