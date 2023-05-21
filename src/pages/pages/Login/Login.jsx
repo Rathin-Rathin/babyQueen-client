@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import Lottie from 'react-lottie';
 import { FaUser} from 'react-icons/fa';
@@ -10,10 +10,12 @@ import { GoogleAuthProvider } from "firebase/auth";
 import useTitle from '../../../Hooks/useTitle';
 const Login = () => {
     useTitle('Login')
-    const navigate = useNavigate();
     const [error, setError] = useState('');
     const { userLogin,googleSignIn } = useContext(AuthContext);
-    const googleProvider=new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const location = useLocation();
+    const navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/home";
     //lottie animation
     const defaultOptions = {
         animationData: registration,
@@ -31,7 +33,7 @@ const Login = () => {
                 setError('');
                 Swal.fire('Login successful')
                 form.reset();
-                navigate('/home')
+                navigate(from,{replace:true})
 
             })
             .catch(error => {
@@ -42,7 +44,7 @@ const Login = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 Swal.fire('Login successful')
-                navigate('/home')
+                navigate(from,{replace:true})
             })
             .catch(error => {
                 setError(error.message);
