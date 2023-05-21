@@ -11,16 +11,16 @@ const MyToys = () => {
     const [myToys, setMyToys] = useState(null);
     const [reload, setReload] = useState(false);
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
+        fetch(`https://baby-queen-server.vercel.app/myToys/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
-    }, [user,reload])
+    }, [user, reload])
     const resetData = signal => {
         setReload(signal);
     }
     return (
         <div className='md:w-9/12 mx-auto'>
-             <ToastContainer />
+            <ToastContainer />
             <h2 className='text-3xl font-bold text-center my-4'>My Toys</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
@@ -38,12 +38,12 @@ const MyToys = () => {
                     </thead>
                     <tbody>
                         {
-                            myToys?.map((data,index) => <ViewMyToy
+                            myToys?.map((data, index) => <ViewMyToy
                                 key={data._id}
                                 myToy={data}
                                 index={index}
                                 resetData={resetData}
-                            reload={reload}
+                                reload={reload}
                                 notify={notify}
                             ></ViewMyToy>)
                         }

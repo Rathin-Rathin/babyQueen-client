@@ -7,17 +7,17 @@ const AllToys = () => {
     const [toysData, setToysData] = useState(null);
     const [searchDoll, setSearchDolls] = useState(null);
     useEffect(() => {
-        fetch(`http://localhost:5000/allData`)
+        fetch(`https://baby-queen-server.vercel.app/allData`)
             .then(res => res.json())
             .then(data => setToysData(data))
-        
-    },[])
+
+    }, [])
     if (toysData?.length > 20) {
         const twentyData = toysData.slice(0, 20);
         setToysData(twentyData);
     }
     const handleSearch = () => {
-        fetch(`http://localhost:5000/dollSearchByName/${searchDoll}`)
+        fetch(`https://baby-queen-server.vercel.app/dollSearchByName/${searchDoll}`)
             .then(res => res.json())
             .then(data => {
                 setToysData(data);

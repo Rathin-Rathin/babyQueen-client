@@ -33,6 +33,6 @@ This a E-commerce app for Search and by best baby toy .
 - Frontend deploy 
 *--> Firebase *
 
-#### Live site link :-
+#### Live site link :-https://baby-stoy.web.app/register
 
 - Developed by :- * Rathin Barai Rahul *

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement:<Error/>,
+    errorElement: <Error />,
     children: [
       {
         path: '/',
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'home',
-        element:<Home/>
+        element: <Home />
       },
       {
         path: 'login',
@@ -38,12 +38,12 @@ const router = createBrowserRouter([
       },
       {
         path: 'addToys',
-        element:<AddToy/>
+        element: <AddToy />
       }, {
         path: '/viewDetails/:id',
-        element:<PrivateRouts><ViewDetails /></PrivateRouts>,
-        loader: ({ params }) => fetch(`http://localhost:5000/viewDetail/${params.id}`, {
-          
+        element: <PrivateRouts><ViewDetails /></PrivateRouts>,
+        loader: ({ params }) => fetch(`https://baby-queen-server.vercel.app/viewDetail/${params.id}`, {
+
         })
       },
       {
@@ -52,13 +52,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'myToys',
-        element:<MyToys/>
+        element: <MyToys />
       },
       {
         path: 'blogs',
-        element:<Blogs/>
+        element: <Blogs />
       }
-     
+
     ]
   },
 ]);

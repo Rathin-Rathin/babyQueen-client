@@ -20,7 +20,7 @@ const AddToy = () => {
         const description = document.getElementById('textarea').value;
         data.category = selectedOption.value;
         data.description = description;
-        fetch(`http://localhost:5000/addToys`, {
+        fetch(`https://baby-queen-server.vercel.app/addToys`, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -37,7 +37,7 @@ const AddToy = () => {
                             popup: 'animate__animated animate__fadeOutUp'
                         }
                     })
-                
+
                 }
             })
 
@@ -47,16 +47,16 @@ const AddToy = () => {
             <form className='md:w-9/12 pt-6 mx-auto form shadow-lg p-4' onSubmit={handleSubmit(onSubmit)}>
                 <h1 className='text-3xl font-bold text-center mb-4'>Add Toys</h1>
                 {/* register your input into the hook by invoking the "register" function */}
-                <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type Toy name" {...register("toyName",{required: true})} />
+                <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type Toy name" {...register("toyName", { required: true })} />
                 <br />
-                <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type photo url" {...register("photoUrl",{required: true})} />
+                <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type photo url" {...register("photoUrl", { required: true })} />
                 <br />
                 <div className='flex gap-2'>
-                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type price" {...register("price",{required: true})} />
+                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type price" {...register("price", { required: true })} />
                     <br />
-                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type atting" {...register("ratting",{required: true})} />
+                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type atting" {...register("ratting", { required: true })} />
                     <br />
-                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type quantity" {...register("quantity",{required: true})} />
+                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' defaultValue="Type quantity" {...register("quantity", { required: true })} />
                 </div>
                 <br />
                 <Select
@@ -68,9 +68,9 @@ const AddToy = () => {
                 />
                 <br />
                 <div className='flex gap-2'>
-                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' value={user ?user?.displayName : 'Type seller Name'} {...register("sellerName",{required: true})} />
+                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' value={user ? user?.displayName : 'Type seller Name'} {...register("sellerName", { required: true })} />
                     <br />
-                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' value={user ? user?.email : 'Type seller email'} {...register("sellerEmail",{required: true})} />
+                    <input className='border customShadow w-full py-2 ps-2 text-md font-serif my-2 rounded' value={user ? user?.email : 'Type seller email'} {...register("sellerEmail", { required: true })} />
                 </div>
                 <br />
                 {/* errors will return when field validation fails  */}
@@ -79,7 +79,7 @@ const AddToy = () => {
                     <textarea id='textarea' placeholder='Short description....' className='border customShadow ps-2 pt-2 font-serif h-[100px] w-full' />
                     <br />
                 </div>
-                    <input className='bg-pink-600 text-white p-4 mt-4 rounded font-semibold w-2/12 cursor-pointer' type="submit" value='Add toy' />
+                <input className='bg-pink-600 text-white p-4 mt-4 rounded font-semibold w-2/12 cursor-pointer' type="submit" value='Add toy' />
             </form>
         </div>
     );

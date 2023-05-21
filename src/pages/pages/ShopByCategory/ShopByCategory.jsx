@@ -10,7 +10,7 @@ const ShopByCategory = () => {
     const [allData, setAllData] = useState([]);
     const [category, setCategory] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allData`)
+        fetch(`https://baby-queen-server.vercel.app/allData`)
             .then(res => res.json())
             .then(data => setAllData(data))
 
@@ -26,13 +26,13 @@ const ShopByCategory = () => {
     const viewDetailsHandler = (id) => {
         if (!user) {
             Swal.fire({
-               
+
                 title: 'Oops...',
                 text: 'You have to login first',
-               
+
             })
             navigate('/login')
-        } else{
+        } else {
             navigate('/viewDetails')
         }
 
@@ -45,12 +45,12 @@ const ShopByCategory = () => {
             <div>
                 <Tabs className="">
                     <TabList className='flex gap-4 w-full justify-center  py-3 mb-2 text-center'>
-                       
+
                         <Tab className=' p-3 rounded font-bold bg-purple-600 text-white shadow-md cursor-pointer hover:bg-pink-500'>Baby dolls</Tab>
                         <Tab className='p-3 rounded font-bold bg-purple-600 text-white shadow-md cursor-pointer hover:bg-pink-500' onClick={() => categoryHandler('Barbie dolls')}>Barbie</Tab>
                         <Tab className='p-3 rounded font-bold bg-purple-600 text-white shadow-md cursor-pointer hover:bg-pink-500' onClick={() => categoryHandler('American girl')}>American Girl</Tab>
                     </TabList>
-                   
+
                     <TabPanel className='w-full md:w-9/12 mx-auto grid md:grid-cols-3 gap-2 md:justify-center p-2'>
 
                         {
@@ -62,7 +62,7 @@ const ShopByCategory = () => {
                                 <p className='mt-2 font-bold text-pink-600 text-lg'>{babyDoll?.toyName}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Price: </span> ${babyDoll?.price}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Ratting:</span>{babyDoll?.ratting}</p>
-                                <Link to={`/viewDetails/${babyDoll?._id}`}  onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
+                                <Link to={`/viewDetails/${babyDoll?._id}`} onClick={() => viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
                             </div>)
                         }
 
@@ -78,7 +78,7 @@ const ShopByCategory = () => {
                                 <p className='mt-2 font-bold text-pink-600 text-lg'>{babyDoll?.toyName}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Price: </span> ${babyDoll?.price}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Ratting:</span>{babyDoll?.ratting}</p>
-                                <Link to={`/viewDetails/${babyDoll?._id}`}  onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 text-white shadow-md cursor-pointer py-1 mt-3 hover:bg-pink-500'>View details</Link>
+                                <Link to={`/viewDetails/${babyDoll?._id}`} onClick={() => viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 text-white shadow-md cursor-pointer py-1 mt-3 hover:bg-pink-500'>View details</Link>
                             </div>)
                         }
                     </TabPanel>
@@ -93,7 +93,7 @@ const ShopByCategory = () => {
                                 <p className='mt-2 font-bold text-pink-600 text-lg'>{babyDoll?.toyName}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Price: </span> ${babyDoll?.price}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Ratting:</span>{babyDoll?.ratting}</p>
-                                <Link to={`/viewDetails/${babyDoll?._id}`} onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
+                                <Link to={`/viewDetails/${babyDoll?._id}`} onClick={() => viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
                             </div>)
                         }
                     </TabPanel>

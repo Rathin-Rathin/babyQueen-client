@@ -15,7 +15,7 @@ const customStyles = {
     },
 };
 Modal.setAppElement(document.getElementById('root'));
-const ViewMyToy = ({ myToy, index, resetData, notify,reload }) => {
+const ViewMyToy = ({ myToy, index, resetData, notify, reload }) => {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     let subtitle;
@@ -29,7 +29,7 @@ const ViewMyToy = ({ myToy, index, resetData, notify,reload }) => {
         setIsOpen(true);
     }
     const onSubmit = data => {
-        fetch(`http://localhost:5000/updateMyToy/${data?.id}`, {
+        fetch(`https://baby-queen-server.vercel.app/updateMyToy/${data?.id}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json'
@@ -47,7 +47,7 @@ const ViewMyToy = ({ myToy, index, resetData, notify,reload }) => {
     }
     const handleDelete = (id) => {
         Swal.fire({
-           
+
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             icon: 'warning',
@@ -57,23 +57,23 @@ const ViewMyToy = ({ myToy, index, resetData, notify,reload }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteToy/${id}`, {
+                fetch(`https://baby-queen-server.vercel.app/deleteToy/${id}`, {
                     method: 'DELETE',
-                    headers:{'Content-type':'application/json'},
+                    headers: { 'Content-type': 'application/json' },
                 })
                     .then(res => res.json())
                     .then(data => {
 
                         resetData(true);
-                        
+
                     })
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
             }
-           
+
         })
     }
     return (
@@ -140,7 +140,7 @@ const ViewMyToy = ({ myToy, index, resetData, notify,reload }) => {
 
             </th>
             <th>
-                <button onClick={()=>handleDelete(myToy?._id)} className=" bg-red-500 hover:bg-red-600 px-4 rounded  py-2 text-white border-0">Delete</button>
+                <button onClick={() => handleDelete(myToy?._id)} className=" bg-red-500 hover:bg-red-600 px-4 rounded  py-2 text-white border-0">Delete</button>
             </th>
         </tr>
 
