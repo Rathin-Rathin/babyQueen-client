@@ -43,6 +43,7 @@ const MyToys = () => {
                                 myToy={data}
                                 index={index}
                                 resetData={resetData}
+                            reload={reload}
                                 notify={notify}
                             ></ViewMyToy>)
                         }

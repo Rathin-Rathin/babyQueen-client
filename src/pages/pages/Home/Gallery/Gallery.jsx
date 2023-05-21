@@ -12,7 +12,7 @@ const Gallery = () => {
     return (
         <div className='mt-9'>
             <h1 className='text-3xl font-mono text-center mb-6'>Products gallery</h1>
-            <div className='grid md:grid-cols-3 w-9/12 gap-4 mx-auto'>
+            <div className='grid md:grid-cols-3 md:w-9/12 p-2 gap-4 mx-auto'>
                 <div className='hover:border-2 rounded hover:bg-pink-300'>
                     <img className='w-full  h-full rounded shadow-xl hover:scale-75 hover:translate-x-4 transition-all' src={img1} alt="" />
                 </div>

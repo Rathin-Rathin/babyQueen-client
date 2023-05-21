@@ -15,7 +15,7 @@ const customStyles = {
     },
 };
 Modal.setAppElement(document.getElementById('root'));
-const ViewMyToy = ({ myToy, index, resetData, notify }) => {
+const ViewMyToy = ({ myToy, index, resetData, notify,reload }) => {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     let subtitle;
@@ -38,7 +38,7 @@ const ViewMyToy = ({ myToy, index, resetData, notify }) => {
         })
             .then(res => res.json())
             .then(data => {
-                resetData(true);
+                resetData(!reload);
 
                 if (data.acknowledged) {
                 }

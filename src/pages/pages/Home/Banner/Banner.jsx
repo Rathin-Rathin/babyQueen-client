@@ -1,7 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import animation from '../../../../assets/animation.json';
-import bg from '../../../../assets/background.jpg'
 import { FaArrowDown } from 'react-icons/fa';
 const Banner = () => {
     const defaultOptions = {
@@ -18,7 +17,7 @@ const Banner = () => {
                     <h2 className='text-4xl  font-serif animate-pulse'>Welcome to baby's Toys</h2>
                     <p className='font-bold font-serif mb-6'>Source of baby's Happiness</p>
 
-                    <div className=" carousel carousel-center rounded-box">
+                    <div className=" carousel carousel-center  rounded-box">
                         <div id="slide1" className="carousel-item relative w-full">
                             <img src="https://images.unsplash.com/photo-1546015720-b8b30df5aa27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" className="w-full h-[200px]" />
                             <div className="absolute flex justify-center gap-4 transform -translate-y-1/2  right-5 bottom-0">
@@ -51,11 +50,8 @@ const Banner = () => {
                     </div>
                 </div>
 
-                <div>
-                    <Lottie options={defaultOptions}
-                        height={500}
-                        width={500}
-
+                <div className=' w-full'>
+                    <Lottie className="w-full md:w-1/3  " options={defaultOptions}
                     />
                 </div>
 

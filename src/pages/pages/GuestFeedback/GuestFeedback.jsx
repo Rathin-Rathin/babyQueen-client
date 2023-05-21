@@ -16,7 +16,7 @@ const GuestFeedback = () => {
                 </div>
                 <div className='md:flex justify-between gap-4 '>
                     <div>
-                        <div className="card hover:translate-y-2 delay-100 mb-4 bg-base-100 shadow-xl image-full h-[300px]">
+                        <div className="card hover:translate-y-2 hover:border-2 border-pink-600 delay-100 mb-4 bg-base-100 shadow-xl image-full h-[300px]">
                             <figure><img className='' src={guest1} alt="Shoes" /></figure>
                             <div className=" card-body">
 
@@ -30,7 +30,7 @@ const GuestFeedback = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="card hover:translate-y-2 delay-100  bg-base-100 shadow-xl image-full h-[300px]">
+                        <div className="hover:border-2 border-pink-600 card hover:translate-y-2 delay-100  bg-base-100 shadow-xl image-full h-[300px]">
                             <figure><img src={guest2} className='' alt="Shoes" /></figure>
                             <div className="card-body">
 

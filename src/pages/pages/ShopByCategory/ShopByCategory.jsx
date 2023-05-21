@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { AuthContext } from '../../../Providers/AuthProvider'
 const ShopByCategory = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
     const [allData, setAllData] = useState([]);
     const [category, setCategory] = useState([]);
     useEffect(() => {
@@ -50,49 +51,49 @@ const ShopByCategory = () => {
                         <Tab className='p-3 rounded font-bold bg-purple-600 text-white shadow-md cursor-pointer hover:bg-pink-500' onClick={() => categoryHandler('American girl')}>American Girl</Tab>
                     </TabList>
                    
-                    <TabPanel className='md:w-9/12 mx-auto grid md:grid-cols-3 gap-2 justify-center'>
+                    <TabPanel className='w-full md:w-9/12 mx-auto grid md:grid-cols-3 gap-2 md:justify-center p-2'>
 
                         {
                             defaultCagetoryData.map(babyDoll => <div
-                                className='card shadow-lg  p-4 w-full'
+                                className='card shadow-lg  md:p-4 w-full'
                                 key={babyDoll._id}>
 
                                 <img className='w-full hover:animate-pulse h-[200px] rounded-lg shadow-lg ' src={babyDoll?.photoUrl} alt="" />
                                 <p className='mt-2 font-bold text-pink-600 text-lg'>{babyDoll?.toyName}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Price: </span> ${babyDoll?.price}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Ratting:</span>{babyDoll?.ratting}</p>
-                                <Link onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
+                                <Link to={`/viewDetails/${babyDoll?._id}`}  onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
                             </div>)
                         }
 
                     </TabPanel>
-                    <TabPanel className='md:w-9/12 mx-auto grid md:grid-cols-3 gap-2 justify-center'>
+                    <TabPanel className='md:w-9/12 mx-auto grid md:grid-cols-3 gap-2 md:justify-center'>
                         {
 
                             category.map(babyDoll => <div
-                                className='card shadow-lg  p-4 w-full'
+                                className='card shadow-lg p-2 md:p-4 w-full'
                                 key={babyDoll._id}>
 
                                 <img className='w-full hover:animate-pulse h-[200px] rounded-lg shadow-lg ' src={babyDoll?.photoUrl} alt="" />
                                 <p className='mt-2 font-bold text-pink-600 text-lg'>{babyDoll?.toyName}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Price: </span> ${babyDoll?.price}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Ratting:</span>{babyDoll?.ratting}</p>
-                                <Link onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 text-white shadow-md cursor-pointer py-1 mt-3 hover:bg-pink-500'>View details</Link>
+                                <Link to={`/viewDetails/${babyDoll?._id}`}  onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 text-white shadow-md cursor-pointer py-1 mt-3 hover:bg-pink-500'>View details</Link>
                             </div>)
                         }
                     </TabPanel>
-                    <TabPanel className='md:w-9/12 mx-auto grid md:grid-cols-3 gap-2 justify-center'>
+                    <TabPanel className='md:w-9/12 mx-auto grid md:grid-cols-3 gap-2 md:justify-center p-2'>
                         {
 
                             category.map(babyDoll => <div
-                                className='card shadow-lg  p-4 w-full'
+                                className='card shadow-lg  md:p-4 w-full'
                                 key={babyDoll._id}>
 
                                 <img className='w-full hover:animate-pulse h-[200px] rounded-lg shadow-lg' src={babyDoll?.photoUrl} alt="" />
                                 <p className='mt-2 font-bold text-pink-600 text-lg'>{babyDoll?.toyName}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Price: </span> ${babyDoll?.price}</p>
                                 <p className='mt-2 font-serif text-md'><span className='font-bold'>Ratting:</span>{babyDoll?.ratting}</p>
-                                <Link onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
+                                <Link to={`/viewDetails/${babyDoll?._id}`} onClick={()=>viewDetailsHandler(babyDoll._id)} className='text-center rounded font-serif  bg-purple-600 hover:bg-pink-500 text-white shadow-md cursor-pointer py-1 mt-3'>View details</Link>
                             </div>)
                         }
                     </TabPanel>

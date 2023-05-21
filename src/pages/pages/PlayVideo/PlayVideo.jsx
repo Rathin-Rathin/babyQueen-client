@@ -7,7 +7,7 @@ const PlayVideo = () => {
     }
     return (
         <div style={{ background: `url(${bg})` }} className='relative bg-cover bg-no-repeat mt-9 h-[100vh]'>
-           {click ? <iframe className='w-full h-full ' src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" frameborder="0"></iframe> :<iframe className='w-full h-full hidden' src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" frameborder="0"></iframe>}
+           {click ? <iframe className='w-[100%] rounded-lg opacity-90 mx-auto h-[100%]' src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" frameborder="0"></iframe> :<iframe className='w-[80%] mx-auto h-[80%] p-4 hidden' src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" frameborder="0"></iframe>}
 
             {click ?
                 

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Toy = ({ toy, index }) => {
-    console.log(toy._id);
     return (
 
         <tr className='text-center'>
