@@ -4,6 +4,7 @@ import Gallery from '../Gallery/Gallery';
 import ShopByCategory from '../../ShopByCategory/ShopByCategory';
 import useTitle from '../../../../Hooks/useTitle';
 import GuestFeedback from '../../GuestFeedback/GuestFeedback';
+import PlayVideo from '../../PlayVideo/PlayVideo';
 
 
 const Home = () => {
@@ -13,7 +14,8 @@ const Home = () => {
             <Banner />
             <Gallery />
             <ShopByCategory />
-            <GuestFeedback/>
+            <GuestFeedback />
+            <PlayVideo/>
         </div>
     );
 };
