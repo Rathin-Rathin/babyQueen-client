@@ -22,7 +22,7 @@ const Header = () => {
         <Link to='/allToys'>AllToys</Link>
         {user && <Link to='myToys'>MyToys</Link>}
         {user && <Link to='/addToys'>AddToys</Link>}
-        <Link>Blogs</Link>
+        <Link to='/blogs'>Blogs</Link>
         <div className='profileContainer'>
             {user && < img referrerPolicy='no-referrer' className='userProfile logo rounded-full' src={user?.photoURL} alt="" />}
             <p className='w-[150px] userName'>{user?.displayName}</p>
